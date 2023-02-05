@@ -1,5 +1,4 @@
 import jsonlines
-import json
 import spacy
 from tqdm import tqdm
 from spacy.tokens import DocBin
@@ -31,7 +30,6 @@ def convert(input_list,output_path):
         doc.ents = ents # label the text with the ents
         db.add(doc)
     db.to_disk(output_path)
-
 
 
 with jsonlines.open("input/fda_curated.jsonl", mode='r') as reader:
